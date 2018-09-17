@@ -1,0 +1,47 @@
+// 9/14 Class Notes<
+// Benjamin Allan-Rahill
+
+More Java Examples!!
+
+Mortgage example:
+- copy and paste code from the homework example
+- Add print statements as debugging tool
+
+
+SumNums2:
+
+printf(string)
+
+placeholders --> %d (integer), %f (floating point)
+
+use numbers in front (e.g. %2d) to specify the spacing
+
+
+Why Functions?
+
+  - capture pattern
+  - good to break it up
+
+  `return;` can quit out of function or loop
+
+  interrupt program => ctrl - c
+
+
+  Arrays¡¡¡
+
+    - collection of things
+    - * all same type *
+    - fixed size
+
+    Declaring:
+
+    - `int[] a;`   ==> a = *new* int[4]
+    - a is a reference to the array object
+    - can refer to index i.e. a[0]
+      - a.length -> compute the length
+
+    - int[] b = {4, 5, 7, 422, 45544}   (shorthand)
+
+    loop through:
+
+    for(int i = 0; i < a.length; i++)
