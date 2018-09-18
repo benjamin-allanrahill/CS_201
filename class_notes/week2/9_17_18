@@ -1,0 +1,67 @@
+// Class Notes for 9/17/18
+//Benjamin Allan-Rahill
+
+
+Object Oriented Programming
+
+  Big Idea:
+    - Encapsulate data that belongs together 
+    - Encapsulate methods that operate on this data
+
+    Static functions --> sqrt()
+
+    static --> you can call it whenever
+
+
+
+
+    Example: Bank Account
+
+      Data: balance, name, PIN, interest rate, type, ID
+
+      Methods: check balance, withdraw, deposit  (instance methods)
+
+      instance variables --> store the data
+
+      Needed for OOP:
+
+          - Instance variables
+          - constructors
+          - instance methods
+
+
+          "HEY STRING! WHAT ARE YOU IN LOWER CASE"
+
+      Can reference classes from other scripts
+
+      Ex:
+
+      Account timAccount = new Account(123, 50.0)
+
+      declare variables as `protected` so that the variables are "hidden"
+
+      //constructor
+
+      public Account(int myId, double initialBalance) {
+        id = myId;
+        balance = initialBalance;
+      }
+
+
+      public Account(int myId) {
+        id = myId;
+        balance = 0;
+      }
+
+      // instance methods
+
+      public double getBalance(){
+          return balance;
+      }
+
+
+
+
+      // Rectangles
+
+      instance vars : (x,y), w, h
