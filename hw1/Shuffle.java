@@ -1,113 +1,101 @@
 // Shuffle.java
-//
-// Skeleton for CS 201  HW 1, Problem 3
+// Benjamin Allan-Rahill
+// CS 201  HW 1, Problem 3
 
 public class Shuffle {
 
     public static void main(String[] args) {
-      //  printShufflePeriods(2,100);
-
-        identity(8);
+      printShufflePeriods(2,100);
     }
 
-  /*
     // Prints even shuffle periods between lo and hi.
+    // For each even integer k in the interval [lo, hi],
+    // print a line whose contents is shufflePeriod(k)=p,
+    //where p is the shuffle period for an array of length k.
     public static void printShufflePeriods(int lo, int hi) {
         // Assume lo and hi are even;
-        int i = lo;
-
-     for (i; i<=hi ;i+=2) {
-
-          System.out.print(shufflePeriod(i));
-
-        }
-
+      for (int i = lo; i<=hi ;i+=2) {
+          System.out.println(i + "=" + shufflePeriod(i));
+      }
     }
 
-*/
 
     // Computes shuffle period for a deck of size L.
     // (The shuffle period is the smallest number of perfect shuffles
     // necessary to bring the deck back into its originial order.)
     public static int shufflePeriod(int L) {
-        // Assume L is even.
-        int shuffleCount = 0;
-        int [] idArray;
+        // Assume L is even
+        int counter = 1; // initiates counter variable
 
-      //  idArray = new identity(L);
-
-        return 0; // just a placeholder
+        //creates a perfectly shuffeled array of desired length
+        // runs until the array is back to an identity array
+        // running a perfect shuffle every loop
+        for (int[] arr = perfectShuffle(identity(L)); isIdentity(arr) != true ; arr = perfectShuffle(arr) ) {
+          counter++; // increments counter per perfect shuffle
+        }
+      //  System.out.println(counter);
+        return counter; // just a placeholder
     }
 
     // Performs a perfect shuffle.
     // Returns a new array that's a perfect shuffle of A
     public static int[] perfectShuffle(int[] A) {
         // Assume A has even length
-
         int len = A.length;
-        int[] beg = new int[len/2];
+        int[] beg = new int[len/2]; // create empty arrays that are half the length of the identity array
         int[] end = new int[len/2];
 
-        int begLen = beg.length;
-        int endLen = end.length;
+        int begLen = beg.length; // establishes lengths of halfs
+        int endLen = end.length; // always the same length but for organizational purposes I initialized it twice
 
+        // Build identity arrays for the first half of the array using the index `i`
         for(int i =0; i <= begLen - 1; i++){
           beg[i] = A[i];
         }
-        System.out.println("BEG = " + intArrayToString(beg));
+        // Build the second array stating at index `i=len/2`
         for(int i =len/2; i <= len -1; i++){
-          System.out.print(i);
           end[i - endLen] = A[i];
         }
-        System.out.println("END = " + intArrayToString(end));
 
-	// allocate result array
+	       // allocate result array
         int[] result = new int[len];
 
+        // loop to shuffle using the index of the two arrays.
 	      for (int i = 0 ; i <= (len/2)-1; i++) {
-          System.out.print(i);
           result[i*2]= beg[i];
           result[(i*2)+1]= end[i];
-          System.out.println("RESULT = " + intArrayToString(result));
-
         }
 
-	// for debugging, print arrays like:
-	System.out.println("RESULT = " + intArrayToString(result));
-
-
+        // return result array to `shufflePeriod` function
         return result;
     }
 
     // Returns an identity array of length L
+    // create new array of length L
+    // fill it with numbers 0 .. L-1
     public static int[] identity(int L) {
 
+    // allocate array of specified length (L)
     int[] array = new int[L];
 
-    System.out.println("A = " + intArrayToString(array));
-
+    // For loop using indecies to create identity array
     for(int i = 0; i <= L-1; i++){
-      System.out.print(i);
       array[i] = i;
     }
-
-    perfectShuffle(array);
-
-    System.out.println("A = " + intArrayToString(array));
-
-	// create new array of length L
-	// fill it with numbers 0 .. L-1
-	// return it
+	   // return it
     return array;
-    //  return id; // just a placeholder
     }
 
     // Returns whether array A is the identity array.
     public static boolean isIdentity(int[] A) {
 
-	// FILL IN
-
-        return false; // just a placeholder
+      // uses index to check for identity
+      for (int i = 0; i < A.length ; i++ ) {
+        if (i != A[i]) {
+          return false;
+        }
+      }
+      return true;
     }
 
     // Creates a string representation of integer array A.
