@@ -1,0 +1,68 @@
+// Class notes for 9/21/18
+//Benjamin Allan-Rahill
+
+Big O notation:
+- measure asymptotic complexity
+- upper bound
+
+O(1)    O(log(n))   O(N)    O(nlog(n))  O(n^2)  O(n^3).... O(2^n)
+
+O(1) --> constant time
+    a++
+    b = c + x
+    x = a[100000]
+
+Recurrence relations:
+    analyzing the run time
+
+ex:
+    public static int fact(int n){
+
+        if (**n == 0 ){
+        **return 1;
+        }
+        else{
+        **return n (**)* fact(n-1);
+        }
+    }
+
+    number of recursive calls is proportional to n. * runtime is O(n) *
+
+    T(n) = runtime of fact(n)
+        = # of primitive steps  steps denoted by **
+
+    T(0) = 2
+
+    T(n) = 3 + T(n-1)
+
+    Solving:
+
+    T(0) = 2
+    T(1) = 3 + T(0)
+    T(2) = 3 + T(1)
+
+    T(n) = 3 + T(n-1)
+         = 3 + 3 + 3 + T(n-2)
+         = 3 + 3 +...+ T(0)
+         = 3n + 2
+
+VECTORS:
+    - Extendable arrays
+    - like lists in python
+
+    `import java.util.Scanner`
+    Scanner s = new Scanner(System.in);
+
+
+    "IT'S FRIDAY"
+
+
+    ctrl-d --> end of input keystroke
+
+
+    If input (i.g. words) is greater than specified length of array  there will be an error
+    Or, if the input is less then the specified length than you end up wasting space
+
+    Using VECTORS:
+
+    `java.util.Vector`

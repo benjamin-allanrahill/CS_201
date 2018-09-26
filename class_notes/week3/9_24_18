@@ -1,0 +1,40 @@
+// Class Notes for 9/24/18
+//
+//Benjamin Allan-Rahill
+
+
+Recurrence Relations:
+
+- Base case
+- Recursive case
+
+VECTORS:
+
+Vector Class
+    - will be a wrapper for an array
+
+    Instance vars:
+    - elementCount (eC)
+    - elementData (eD)
+
+    length = capacity
+
+    declare instance vars with `protected`
+
+    Ex:
+
+    this(x) // calls other constructor
+
+    eD = new Object[10];
+    eC = 0;
+
+    // instance methods
+
+        //retruns number of elements currently stored
+        public int size() {
+            return eC;
+        }
+
+        public boolean isEmpty() {
+            return this.size() == 0;
+        }
