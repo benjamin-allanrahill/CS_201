@@ -1,0 +1,36 @@
+// Class notes for 10/1/18
+
+//Benjamin Allan-Rahill
+
+
+Can we sort n #s in linear time?
+
+Spaghetti Sort:
+    - Cut spaghetti to size O(n)
+    - Sort using "gravity"      O(1)
+    - Repeat: pick largest, measure, output #   O(n)
+
+    Limitation:
+    - Limited range
+    - Limited precision
+
+
+Counting sort:
+    - have N integers to sort with limited range
+    - compute histogram
+    - print scores per # of count
+
+Bucket sort:
+    - have N floats in range 0.0 --- M & B buckets
+    - use B= N/10
+
+    ex: N = 1000 B = 100  M = 200.0
+
+    - Sort each bucket (quick, Insertion, etc.)
+    - only works well if #s are uniformly distributed
+
+Radix sort:
+    - sort N ints w/ K digits
+    - make K passes
+        - sort #s into K buckets by digit (least significant digit first )
+    O(k * N)

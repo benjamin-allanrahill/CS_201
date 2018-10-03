@@ -1,0 +1,45 @@
+// Class notes for 9/26/18
+//
+//Benjamin Allan-Rahill
+
+VECTORS:
+
+- a vector is an extendable array
+
+What if we just grew the vector by 1?
+
+T(n) = n(n+1)/2  --> would make it really slow
+
+What if we grow it by doubling?
+
+  Only done 2n work and is O(n) --> linear time
+
+  Interfaces:
+
+  public interface Circular{
+
+  }
+
+  Chapter 1.8
+
+
+  Sorting Algorithms:
+
+  bubbleSort:
+
+    compares the first one to the second one
+    largest one will "bubble" to the top
+    keep making passes until the array is sorted
+
+    Ex:
+
+    Sorting.java
+
+
+Selection Sort:
+    - Search the array for the biggest #
+    - swap that with the last value
+    - keep track of the index
+
+Insertion sort:
+    - Start with the first element and keep making a sorted portion 
