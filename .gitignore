@@ -24,3 +24,9 @@ hs_err_pid*
 
 # ignore the pdf JavaStructures
 JavaStructures.pdf
+
+# ignore eclipse files
+*.classpath
+*.project
+
+.DS_Store
