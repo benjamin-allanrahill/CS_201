@@ -1,0 +1,12 @@
+// Class notes for 10/24/18
+
+Comparable Objects:
+                        Ordered Vector      LL
+      contains() -      O(log(n))           O(N)
+      add()-            O(N)                O(N)
+      remove()-         O(N)                O(N)
+
+      The problem is that they are linear
+
+
+Trees:

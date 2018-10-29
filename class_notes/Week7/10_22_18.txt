@@ -1,0 +1,24 @@
+// Class notes for 10/22/2018
+
+FIFO- First in first out --> QUEUE
+
+LIFO- Last in first out --> STACK
+
+Stack:
+
+  SLL --  addFirst O(1)         push
+          removeFirst O(1)      pop
+
+Queue:
+  CL --   addLast O(1)          enqueue
+          removeFirst O(1)      dequeue
+
+RPN:
+
+2+3*4
+
+
+MazeRunner.java
+
+  - depth-first search (Stack)
+  - Breadth-first search

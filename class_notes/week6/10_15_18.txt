@@ -1,0 +1,50 @@
+// Class notes for 10/15/18
+
+
+Study guide is online
+Open notes ==> Any printed material
+
+IntList Cont. :
+
+empty() -> []
+head(IL) -> int
+isEmpty(IL) -> boolean
+tail(IL) -> IL "rest"
+prepend(x, IL) -> add
+
+
+
+fromTo(3,6) -> [3,4,5,6]
+
+
+public static IntList fromTo (int lo, int hi){
+    if(lo < hi) {
+        return empty();
+    } else {
+        return prepend(lo, fromTo(lo +1, hi));
+    }
+}
+
+
+public static IntList append(IntList L1, IntList L2){
+    if(isEmpty(L1)){
+        return L2;
+    } else{
+        return prepend(head(L1), append(tail(L1), L2))
+    }
+}
+
+ runtime: O(1)
+
+// straight forward, but inefficient version - O(n^2)
+ public static IntList reverse(IntList L){
+    if(isEmpty(L)){
+        return L;
+    } else{
+        return postpend(head(L), reverse(tail L));
+    }
+ }
+
+ public static IntList postpend(int x, IntList L){
+    return append(L, prepend(x, empty()));
+ }

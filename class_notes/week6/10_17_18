@@ -1,0 +1,15 @@
+// Class Notes for 10/17/18
+// Benjamin Allan-Rahill
+
+GENERICS:
+
+Vector<T> --> Lecture 11  code examples (Test2.java)
+
+Static functions stand alone
+
+Interface --> promises a certain amount of functionality
+
+
+Vectors v. Arrays -->
+
+    int[] a = new int[100]

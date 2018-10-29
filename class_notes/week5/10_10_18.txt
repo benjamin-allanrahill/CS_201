@@ -1,0 +1,92 @@
+// Class notes for 10/10/18
+// Benjamin Allan-Rahill
+
+IntLists (IL):
+
+    - functional view of lists (inspired by LISP)
+    - Inherently recursive structure
+
+    Python
+
+    x = [1,2,4]
+    y = [5]
+    z = []
+
+    diagram on paper****
+
+    *functions to know
+
+    *head(IL) -> int     "first element"
+    *tail(IL) -> IL      "list w/o first element" = "rest"
+
+
+                        head(x)         tail(x)
+    x = [1,2,4]         1               [2,4]
+    y = [5]             5               []
+    z = []              error           error
+
+
+    *isEmpty(IL) -> boolean
+
+    *empty() -> IL ==> []
+
+    *prepend(int, IL) -> IL
+
+    EX:
+
+    s = prepend(7,x) --> [7,1,2,4]
+
+    IntListOps:
+
+        "accumulators"
+
+            public static int length(IntList l){
+                if(isEmpty(l)){
+                    return 0;
+                } else{
+                    return 1 + length(tail(l));
+                }
+            }
+
+            public static int sum(IntList l){
+                if(isEmpty(l)){
+                    return 0;
+                } else{
+                    return head(l) + length(tail(l));
+                }
+            }
+
+            public static int product(IntList l){
+                if(isEmpty(l)){
+                    return 1;
+                } else{
+                    return head * length(tail(l));
+                }
+            }
+
+
+        "mappers"       IL -> IL
+
+            public static IntList mapDouble(IntList l){
+                if(isEmpty(l)){
+                    return empty();
+                } else{
+                    return prepend(2*head(l), mapDouble(tail(l))) ;
+                }
+            }
+
+
+        "filter"       IL -> IL
+
+            public static IntList filterEvens(IntList l){
+                if(isEmpty(l)){
+                    return empty();
+                } else{
+                    if(head(l) % 2 == 0 ){
+                        return prepend(head, filterEvens(tail(l)));
+                    }else{
+                        return(filterEvens(tail(l)));
+                    }
+
+                }
+            }
