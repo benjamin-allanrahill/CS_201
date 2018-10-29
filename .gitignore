@@ -29,4 +29,6 @@ JavaStructures.pdf
 *.classpath
 *.project
 
+*.pdf
+
 .DS_Store
