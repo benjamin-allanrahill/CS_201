@@ -2,7 +2,7 @@
 //
 // CS 201 HW 7
 //
-// Name:
+// Name: Benjamin Allan-Rahill
 
 import java.applet.*;
 import java.awt.*;
@@ -14,13 +14,13 @@ import java.awt.event.*;
 public class HeapTest extends Applet implements ActionListener {
 
     // instance variables for all components that we need access to
-    
+
     Label titleLabel;
     TextField textField;
     Button addButton, removeButton, clearButton;
     HeapCanvas hc1, hc2;
-    Random rand = new Random(); 
-    
+    Random rand = new Random();
+
     // this initializes the applet
     public void init() {
         // Font to use in applet
@@ -48,8 +48,8 @@ public class HeapTest extends Applet implements ActionListener {
         // *** replace the following line with the line below once
         // *** your tree drawing method works and you are starting to work
         // *** on IntSkewHeap.java
-        hc2 = new HeapCanvas(new RandomHeap(), "Random 'Heap'");
-        // hc2 = new HeapCanvas(new IntSkewHeap(), "Skew Heap");
+        //hc2 = new HeapCanvas(new RandomHeap(), "Random 'Heap'");
+        hc2 = new HeapCanvas(new IntSkewHeap(), "Skew Heap");
 
         Panel heapPanel = new Panel();
         heapPanel.setBackground(Color.white);
@@ -77,7 +77,7 @@ public class HeapTest extends Applet implements ActionListener {
         removeButton = new Button("remove");
         removeButton.setBackground(Color.cyan);
         removeButton.addActionListener(this);
-        
+
         // right button: clear
         clearButton = new Button("clear");
         clearButton.setBackground(Color.red);
@@ -171,22 +171,26 @@ class HeapCanvas extends Canvas {
     // Each leaf is drawn as a circle with radius rad.
     public static void drawHeap(Graphics g, IntHeap h, int l, int r,
                       int y, int dy, int rad) {
-
-
-        /**********************************************
-         *  complete the code below to draw the tree  *
-         **********************************************/
-        
         int x = (l + r) / 2;
         g.setColor(Color.black);
         if (h.isEmpty()) {
             g.fillOval(x-3, y-3, 7, 7);
         } else {
+            if (!h.left().isEmpty()) {
+                g.drawLine(x, y, (l+x)/2, y+dy);
+                drawHeap(g, h.left(), l, x, y+dy, dy, rad);
+            }
+            if (!h.right().isEmpty()) {
+                g.drawLine(x, y, (x+r)/2, y+dy);
+                drawHeap(g, h.right(), x, r, y+dy, dy, rad);
+            }
+            g.setColor(Color.yellow);
+            g.fillOval(x-rad, y-rad, 2*rad, 2*rad);
+            g.setColor(Color.black);
+            g.drawOval(x-rad, y-rad, 2*rad, 2*rad);
             centerString(g, Integer.toString(h.value()), x, y);
-        }
 
-        /*********************************************/
-        
+        }
     }
 
     // helper method to draw a String centered at x, y
