@@ -1,0 +1,27 @@
+// Class notes for 11/2/18
+// Benjamin Allan-Rahill
+
+
+Applets:
+
+import java.awt.*;
+
+public class ... extends Frame {...
+
+public void paint(Graphics g) {....}
+
+new Panel() - hierarchical layouts
+
+
+Layout managers -
+
+FlowLayout() -- like text layout
+
+GridLayout(nrows, ncols)
+
+BorderLayout() -- north south east west and center
+
+
+Events:
+
+java.awt.events.*;

@@ -1,0 +1,36 @@
+// Class notes for 10/26/18
+
+value(t)
+left(t)
+right(t)
+isEmpty(t)
+
+empty(t)
+node(3, L, R)
+
+
+public static int countNodes(IntTree t){
+  if(isEmpty(t)){
+    return 0;
+  } else {
+    return 1 + countNodes(left(t)) + countNodes(right(t))
+  }
+}
+
+public static maxInt(IntTree t){
+  if(isEmpty(t)){
+    return Integer.MIN_VALUE; // -infinity
+  } else {
+    Math.max(value(t), Math.max(maxInt(left(t), maxInt(right(t)))));
+  }
+}
+
+
+public static height(IntTree t){
+  if(isEmpty(t)){
+    return 0;
+  } else {
+    return 1 + Math.max(height(left(t), height(right(t))));
+  }
+
+}

@@ -1,0 +1,50 @@
+// Class notes for HALLOWEEN
+// Ben Allan-Rahill
+
+Heaps:
+
+Complete tree -- full, except for last level, which is filled from left
+
+    - can store values in array in level order
+
+    node i --   left child:   2i +1
+                right child:  2i +2
+
+
+get() --> O(1)
+
+
+add(E val) -- >
+
+      - add x as next leaf in level order
+      - percolateUp
+
+      runtime -> O(H) (height) ==> O(log(n))
+
+
+      N ~ 2^H
+      H is O(log(n))
+
+
+remove():
+
+    - remove last leaf, put at root
+    - pushDownRoot
+
+    runtime - O(log(n))
+
+
+
+Heap Sort:
+
+- add N values and remove N vals
+
+
+Skew heaps:
+
+      - merge(A, B)
+
+
+      assume first heap has smaller value
+
+      swap children of first heap and merge recursively 

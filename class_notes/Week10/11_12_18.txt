@@ -1,0 +1,43 @@
+// Class notes for 11/12/18
+
+Maps/Hashtables:
+
+    Store data in database
+        - phone book entries
+        - bank accounts
+
+        indexed/organized by key/value
+
+        map key to value
+
+
+    put(k,v): add to
+    get(k) --> v : retrieve value associated w/ key
+
+
+    avg runtime
+
+                            put                 get
+unsorted    array/vector    O(1)                O(N)
+            linked list     O(1)                O(N)
+sorted      array/vector    O(N)                O(logN)
+            linked list     O(N)                O(N)
+BST(balanced)               O(logN)             O(logN)
+
+Hashtables                  O(1)                O(1)
+
+
+use full range of indices
+
+Collisions:
+
+    - linked list at collisions
+
+    1. Linear probing
+    2. External chaining
+        - use buckets to store values whose key maps to same index
+
+
+
+Hash functions for strings:
+    
