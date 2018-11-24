@@ -1,6 +1,7 @@
 // CS 201 Homework 6
 //
 // Name: Benjamin Allan-Rahill
+import java.util.*;
 
 public class HW6IntTreeOps extends IntTreeOps {
 
@@ -88,7 +89,22 @@ public class HW6IntTreeOps extends IntTreeOps {
                                                minInt(right(t))));
         }
     }
-]
+
+    public static void levelOrderWrite(IntTree t) {
+    // prints out the contents of the tree t in level order
+    Stack<IntTree> q = new Stack<IntTree>();
+    q.push(t);
+    while (!q.empty()) {
+        IntTree node = q.pop();
+        if (!isEmpty(node)) {
+            System.out.print("  " + value(node));
+            q.push(left(node));
+            q.push(right(node));
+        }
+    }
+    System.out.println();
+}
+
     // Auxilary function to print the usage error message
     public static void printErr(){
       System.err.printf("%s\n%s\n\n%s\n%s%s\n%s%s\n%s",
@@ -103,7 +119,7 @@ public class HW6IntTreeOps extends IntTreeOps {
     }
 
     public static void main(String[] args){
-      IntTree[] intTrees = new IntTree[7];
+      IntTree[] intTrees = new IntTree[8];
       //create the 7 arrays
       intTrees[0] = empty();
       intTrees[1] = node(3, empty(), empty());
@@ -122,12 +138,17 @@ public class HW6IntTreeOps extends IntTreeOps {
       intTrees[6] = node(1,
                         node(2, leaf(4), leaf(5)),
                         node(3, leaf(6), leaf(7)));
+        intTrees[7] = node(5,
+                          node(3,
+                            node(1, empty(), leaf(2)),
+                            leaf(4)),
+                          node(8, node(7, leaf(6), empty()), leaf(9)));
 
         // check usage of args
         if (args.length != 2 && args.length !=1)
             printErr();
         // test if arguments are valid
-        else if (Integer.parseInt(args[0])<1 || Integer.parseInt(args[0]) > 7) {
+        else if (Integer.parseInt(args[0])<1 || Integer.parseInt(args[0]) > 8) {
           System.err.println(
           "Arguments must be a valid int in the range 1-7"
           );
@@ -142,6 +163,7 @@ public class HW6IntTreeOps extends IntTreeOps {
             printTree(weightedTree(tree1));
             System.out.println("testFullTree:" + testFullTree(tree1));
             System.out.println("testOrderedTree:" + testOrderedTree(tree1));
+            levelOrderWrite(tree1);
           } else {
             int arg1 = Integer.parseInt(args[0]);
             int arg2 = Integer.parseInt(args[1]);
