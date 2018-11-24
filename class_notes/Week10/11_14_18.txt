@@ -1,0 +1,12 @@
+// Class notes for 11/14/18
+
+
+Take home midterm:
+
+splits based off x and then next level is off y
+
+rebuild builds balanced tree
+    - traverses (pre-order) tree and stores value
+    - take median x coord for new root
+    - recursively does the same thing on the left and right
+        - alternating between x and y
